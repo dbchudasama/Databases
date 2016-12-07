@@ -42,12 +42,13 @@ public class Connect extends HttpServlet {
 			return;
 		}
 		
-		//Adding java sql connection 
+		//Adding java SQL connection 
 		Connection conn = null;
 		
 		//Connecting to Database
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql:https://web352.webfaction.com/localhost/nhsfevents", "dbchudasama", "porbander27");
+			conn = DriverManager.getConnection("jdbc:mysql://web352.webfaction.com:3306/nhsfevents", "dbchudasama", "porbander27");
+			System.out.print("Connected");
 		} catch (SQLException e) {
 			out.println("Can't connect to database");
 			return;
