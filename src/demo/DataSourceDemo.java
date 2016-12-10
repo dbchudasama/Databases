@@ -55,7 +55,7 @@ public class DataSourceDemo extends HttpServlet {
 			Context env = (Context)initContext.lookup("java:comp/env");
 			
 			//Above context can be used to lookup Datasource. Will return an object of type DataSource
-			ds = (DataSource)env.lookup("jdbc/nhsfevents");
+			ds = (DataSource)env.lookup("jdbc/webapptest");
 			
 		} catch (NamingException e) {
 			throw new ServletException();

@@ -1,10 +1,7 @@
-package demo;
+package test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Connect
+ * Servlet implementation class Test
  */
-@WebServlet("/Connect")
-public class Connect extends HttpServlet {
+@WebServlet("/Test")
+public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Connect() {
+    public Test() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,38 +28,9 @@ public class Connect extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		PrintWriter out = response.getWriter();
 		
-		//Loading mySQL Connector Driver
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			out.println("Can't load database driver");
-			return;
-		}
-		
-		//Adding java SQL connection 
-		Connection conn = null;
-		
-		//Connecting to Database
-		try {
-			conn = DriverManager.getConnection("jdbc:mysql://web352.webfaction.com:3306/webapptest", "dbchudasama", "porbander27");
-			System.out.print("Connected");
-		} catch (SQLException e) {
-			out.println("Can't connect to database");
-			return;
-		}
-		
-		out.println("Connected to Database");
-		
-		//Closing database connection
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		out.println("Hello");
 	}
 
 	/**
